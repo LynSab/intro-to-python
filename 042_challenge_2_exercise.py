@@ -57,7 +57,10 @@ def print_board(board):
   return grid
 
 def make_move(board, row, column, player):
-  board[row][column] = player
+  if board[row][column] == ".":
+     board[row][column] = player
+  else: 
+    print("Invalid move, lose a turn")
   return board
 
 
@@ -98,6 +101,7 @@ groups_to_check = [
 ]
 
 def is_game_over(board):
+  incomplete_groups = 0
   # We go through our groups
   for group in groups_to_check:
     # If any of them are empty, they're clearly not a
@@ -106,6 +110,12 @@ def is_game_over(board):
       if are_all_cells_the_same(board, group[0], group[1], group[2]):
         return True # We found a winning row!
         # Note that return also stops the function
+    else:
+      incomplete_groups += 1 
+
+  if incomplete_groups == 0:
+    return True
+  print(incomplete_groups)
   return False # If we get here, we didn't find a winning row
 
 # And test it out:

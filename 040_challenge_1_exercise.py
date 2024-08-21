@@ -30,7 +30,30 @@ print("")
 print("Function: report_long_words")
 
 def report_long_words(words):
-  pass
+  longer_than_ten = []
+  
+  for word in words:
+    if len(word) > 10:
+      longer_than_ten.append(word)
+
+  print(longer_than_ten)
+  no_hyphen = []
+
+  for word in longer_than_ten:
+    if "-" not in word:
+      no_hyphen.append(word)
+
+  shortened_words = []
+
+  for word in no_hyphen:
+    if len(word) > 15:
+      shortened_words.append(word[0:15] + "...")
+    else:
+      shortened_words.append(word)
+
+  final_words = ", ".join(shortened_words)
+
+  return f"These words are quite long: {final_words}"
 
 check_that_these_are_equal(
   report_long_words([

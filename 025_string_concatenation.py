@@ -58,7 +58,7 @@ print("Function: greet")
 def greet(name):
 	# Return the string "Hello, Kay!" where "Kay" is the
 	# name provided
-	pass
+	return f"Hello, {name}!"
 
 check_that_these_are_equal(
 	greet("Chuang-tzu"),
@@ -71,3 +71,18 @@ check_that_these_are_equal(
 )
 
 # When you're done, move on to 026_ifs.py
+
+def intro(name, dob):
+	age = 2024 - dob
+	return f"Hello, my name is {name} and I am {age} years old."
+
+print(intro("Lyn", 1995))
+
+def even_or_odd(num):
+	if num % 2 == 0:
+		return "Even"
+	else:
+		return "Odd"
+
+print(even_or_odd(13))
+print(even_or_odd(8))
